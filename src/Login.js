@@ -12,7 +12,6 @@ import './Login.css'
 
 
 export default class Login extends React.Component {
-
     render() {
         return (
             <React.Fragment>
@@ -38,6 +37,7 @@ export default class Login extends React.Component {
                                 />
                             </FormControl>
                             <Button
+                                to="/todo"
                                 type="submit"
                                 fullWidth
                                 variant="raised"
