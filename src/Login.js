@@ -13,13 +13,39 @@ import './Login.css'
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            email: '',
+            password: '',
+            //entra: false,
+            redirect: '/'
+        }
 
     }
-    
+    DATA(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+    handleSubmit(e) {
+
+        //e.preventDefault();
+        //alert(localStorage.getItem("email"))
+        if (this.state.email == localStorage.getItem("email")  && this.state.password==localStorage.getItem("password")){
+            this.setState({
+                redirect:'/todo'
+            })
+            window.location="/todo"
+
+            //window.location.reload(true);
+        }
+        else{
+            return;
+        }
+        
+    }
     render() {
-        alert("The User is: "+localStorage.getItem("email"))
-        alert("The Password is: "+localStorage.getItem("password"))
+        //alert("The User is: " + localStorage.getItem("email"))
+        //alert("The Password is: " + localStorage.getItem("password"))
         return (
             <React.Fragment>
                 <CssBaseline />
@@ -29,40 +55,45 @@ export default class Login extends React.Component {
                             <LockIcon />
                         </Avatar>
                         <Typography variant="headline">Sign in</Typography>
-                        <form className="form">
+                        <form onSubmit={this.handleSubmit.bind(this)} className="form">
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="email">Email Address</InputLabel>
-                                <Input id="email" name="email" autoComplete="email" autoFocus />
+                                <Input id="email" name="email" required value={this.state.email} onChange={this.DATA.bind(this)} autoComplete="email" autoFocus />
                             </FormControl>
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="password">Password</InputLabel>
-                                <Input
-
+                                <Input required
+                                    value={this.state.password}  onChange={this.DATA.bind(this)}
                                     name="password"
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
                                 />
                             </FormControl>
-                            
-                            <Link to="/todo" style={{textDecoration: 'none'}}>
+
+                            <Link to={this.state.redirect} id="redirect" name="redirect" style={{ textDecoration: 'none' }}>
                                 <Button
-                                    
-                                    type="submit"
+                                    onClick={this.handleSubmit.bind(this)}
+                                    type='submit'
                                     fullWidth
-                                    variant="raised"
-                                    color="primary"
-                                    className="submit"
-                                >
-                                    Sign in
-                            </Button>
+                                    variant='contained'
+                                    color='primary'
+                                    className="submit">
+                                    Sign In
+
+                                </Button>
                             </Link>
                         </form>
                     </Paper>
                 </main>
+                <p>{JSON.stringify(this.state)}</p>
+
+
+                <h3>The User is: admin@mail.com</h3>
+                <h3>The Password is: admin</h3>
             </React.Fragment>
         );
 
     }
-  
+
 }
