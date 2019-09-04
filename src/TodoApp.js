@@ -8,7 +8,8 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Fab from '@material-ui/core/Fab';
 import Clear from '@material-ui/icons/Clear'
-import { BrowserRouter as Router, Link, Switch, Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import TextField from '@material-ui/core/TextField';
 class TodoApp extends React.Component {
     constructor(props) {
         super(props);
@@ -33,32 +34,48 @@ class TodoApp extends React.Component {
                         New TODO
                     </Typography>
                     <br /><br />
-                    <label htmlFor="text" className="right-margin">
+                    {/*<label htmlFor="text" className="right-margin">
                         Text:
-                    </label>
-
-                    <input
+                    </label>*/}
+                    <TextField
+                        id="outlined-name"
+                        label="Text"
+                        value={this.state.text}
+                        margin="normal"
+                        variant="outlined"
+                        onChange={this.handleTextChange}
+                    />
+                    {/*<input
                         id="text"
                         onChange={this.handleTextChange}
                         value={this.state.text}>
-                    </input>
+                    </input>*/}
                     <br />
                     <br />
-                    <label htmlFor="priority" className="right-margin">
+                    {/*<label htmlFor="priority" className="right-margin">
                         Priority:
-                    </label>
-
-                    <input
+                    </label>*/}
+                    <TextField
+                        id="outlined-name"
+                        label="Priority"
+                        value={this.state.priority}
+                        margin="normal"
+                        variant="outlined"
+                        onChange={this.handlePriorityChange}
+                    />
+                    {/*<input
                         id="priority"
                         type="number"
                         onChange={this.handlePriorityChange}
                         value={this.state.priority}>
-                    </input>
+                    </input>*/}
                     <br />
                     <br />
 
                     <DatePicker
                         id="due-date"
+                        variant="outlined"
+                        margin="normal"
                         selected={this.state.dueDate}
                         placeholderText="Due date"
                         onChange={this.handleDateChange}>
