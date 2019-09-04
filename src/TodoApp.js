@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import './App.css';
 import TodoList from "./TodoList";
 import DatePicker from 'react-datepicker';
@@ -6,7 +6,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 import moment from "moment";
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
-
+import Fab from '@material-ui/core/Fab';
+import Clear from '@material-ui/icons/Clear'
+import { BrowserRouter as Router, Link, Switch, Route} from 'react-router-dom'
 class TodoApp extends React.Component {
     constructor(props) {
         super(props);
@@ -20,6 +22,11 @@ class TodoApp extends React.Component {
     render() {
         return (
             <div className="App">
+                <Link to="/" style={{textDecoration: 'none'}}>
+                    <Fab color="primary" style={{backgroundColor:"#FF4136"}} aria-label="add">
+                        <Clear />
+                    </Fab>
+                </Link>
 
                 <form onSubmit={this.handleSubmit} className="todo-form">
                     <Typography component='h1' variant='h5'>
@@ -56,7 +63,7 @@ class TodoApp extends React.Component {
                         placeholderText="Due date"
                         onChange={this.handleDateChange}>
                     </DatePicker>
-                    <br/><br/>
+                    <br /><br />
                     <Button
                         type='submit'
                         fullWidth
@@ -64,9 +71,9 @@ class TodoApp extends React.Component {
                         color='primary'
                         className="submit">
                         Add #{this.state.items.length + 1}
-                    
-            </Button>
-                 
+
+                    </Button>
+
                 </form>
                 <br />
                 <br />
