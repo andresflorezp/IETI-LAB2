@@ -10,7 +10,6 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import './Login.css'
-
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -19,7 +18,8 @@ export default class Login extends React.Component {
     }
     
     render() {
-        
+        alert("The User is: "+localStorage.getItem("email"))
+        alert("The Password is: "+localStorage.getItem("password"))
         return (
             <React.Fragment>
                 <CssBaseline />
