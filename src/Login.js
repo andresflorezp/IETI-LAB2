@@ -16,8 +16,8 @@ export default class Login extends React.Component {
         this.state = {
             email: '',
             password: '',
-            //entra: false,
-            redirect: '/'
+            redirect: '/',
+            isLoggedIn: false
         }
 
     }
@@ -32,7 +32,7 @@ export default class Login extends React.Component {
         //alert(localStorage.getItem("email"))
         if (this.state.email == localStorage.getItem("email")  && this.state.password==localStorage.getItem("password")){
             this.setState({
-                redirect:'/todo'
+                isLoggedIn:true
             })
             window.location="/todo"
 
@@ -44,8 +44,6 @@ export default class Login extends React.Component {
         
     }
     render() {
-        //alert("The User is: " + localStorage.getItem("email"))
-        //alert("The Password is: " + localStorage.getItem("password"))
         return (
             <React.Fragment>
                 <CssBaseline />
