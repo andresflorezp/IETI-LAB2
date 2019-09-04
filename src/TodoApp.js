@@ -10,13 +10,13 @@ import Button from '@material-ui/core/Button'
 class TodoApp extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = { items: [], text: '', priority: 0, dueDate: moment() };
         this.handleTextChange = this.handleTextChange.bind(this);
         this.handlePriorityChange = this.handlePriorityChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
     render() {
         return (
             <div className="App">
@@ -35,7 +35,6 @@ class TodoApp extends React.Component {
                         onChange={this.handleTextChange}
                         value={this.state.text}>
                     </input>
-
                     <br />
                     <br />
                     <label htmlFor="priority" className="right-margin">
@@ -67,8 +66,7 @@ class TodoApp extends React.Component {
                         Add #{this.state.items.length + 1}
                     
             </Button>
-                    
-                       
+                 
                 </form>
                 <br />
                 <br />

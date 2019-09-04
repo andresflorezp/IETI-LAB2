@@ -8,11 +8,18 @@ import InputLabel from '@material-ui/core/InputLabel';
 import LockIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 import './Login.css'
 
-
 export default class Login extends React.Component {
+    constructor(props) {
+        super(props);
+
+
+    }
+    
     render() {
+        
         return (
             <React.Fragment>
                 <CssBaseline />
@@ -30,27 +37,32 @@ export default class Login extends React.Component {
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="password">Password</InputLabel>
                                 <Input
+
                                     name="password"
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
                                 />
                             </FormControl>
-                            <Button
-                                to="/todo"
-                                type="submit"
-                                fullWidth
-                                variant="raised"
-                                color="primary"
-                                className="submit"
-                            >
-                                Sign in
+                            
+                            <Link to="/todo" style={{textDecoration: 'none'}}>
+                                <Button
+                                    
+                                    type="submit"
+                                    fullWidth
+                                    variant="raised"
+                                    color="primary"
+                                    className="submit"
+                                >
+                                    Sign in
                             </Button>
+                            </Link>
                         </form>
                     </Paper>
                 </main>
             </React.Fragment>
         );
-    }
 
+    }
+  
 }

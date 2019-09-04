@@ -3,8 +3,6 @@ import Todo from './Todo'
 
 class TodoList extends React.Component {
 
-
-
     render() {
         const todoList = this.props.todoList.map((todo, i) => {
             return (
